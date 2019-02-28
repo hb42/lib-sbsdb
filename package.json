@@ -1,0 +1,36 @@
+{
+  "name": "@hb42/lib-sbsdb",
+  "version": "1.0.0",
+  "copyright": "Copyright (c) 2019 Hartmut Bauer",
+  "description": "Common objects for sbsdb + sbsdb-server",
+  "main": "lib/index.js",
+  "typings": "./lib",
+  "scripts": {
+    "clean:lib": "./node_modules/.bin/rimraf ./lib",
+    "clean:tmp": "./node_modules/.bin/rimraf tmp",
+    "clean": "npm run clean:lib && npm run clean:tmp",
+    "build": "npm run clean && tsc",
+    "commit": "git add -A ./lib && git commit -m \"publish npm package\" ./lib",
+    "make": "npm run build && npm run commit && npm version prerelease --preid=beta",
+    "release:patch": "npm run build && npm run commit && npm version patch",
+    "release:minor": "npm run build && npm run commit && npm version minor",
+    "release:major": "npm run build && npm run commit && npm version major",
+    "release": "npm run release:patch"
+  },
+  "author": "hb",
+  "license": "MIT",
+  "repository": "hb42/lib-sbsdb",
+  "config": {
+    "platform": "win"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@angular/language-service": "^7.2.3",
+    "@types/mongoose": "^5.3.12",
+    "copyfiles": "^2.1.0",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {}
+}
